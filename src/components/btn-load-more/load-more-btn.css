@@ -1,0 +1,19 @@
+.load-more-btn {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--card-border-radius);
+  color: var(--primary-color);
+  width: 135px;
+  padding: 14px;
+  font-weight: bold;
+  justify-self: center;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: all 0.2s;
+}
+
+.load-more-btn:active {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  transform: scale(0.98);
+}

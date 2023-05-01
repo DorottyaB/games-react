@@ -1,0 +1,32 @@
+.logo-container {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+}
+
+.logo-container svg {
+  width: 30px;
+  height: 30px;
+}
+
+h1 {
+  font-family: 'Bruno Ace', cursive;
+  font-size: 22px;
+  color: #f4f4f4;
+}
+
+@media screen and (min-width: 1024px) {
+  .logo-container {
+    gap: 18px;
+  }
+
+  .logo-container svg {
+    width: auto;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 24px;
+    letter-spacing: -2px;
+  }
+}

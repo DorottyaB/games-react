@@ -1,0 +1,16 @@
+.see-all-btn {
+  font-size: 16px;
+  opacity: 0.75;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-self: end;
+}
+
+.see-all-btn:active {
+  color: var(--primary-color);
+}
+
+.see-all-btn:active svg {
+  fill: var(--primary-color);
+}

@@ -1,0 +1,13 @@
+.rating-container {
+  font-size: 12px;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  justify-self: end;
+}
+
+.rating-container svg {
+  width: 11px;
+  height: 11px;
+}
