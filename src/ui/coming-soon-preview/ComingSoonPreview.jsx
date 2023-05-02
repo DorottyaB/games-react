@@ -1,8 +1,8 @@
-import { SeeAllBtn } from '../btn-see-all/SeeAllBtn';
-import { ComingSoonCard } from '../coming-soon-card/ComingSoonCard';
-import './coming-preview.css';
+import { SeeAllBtn } from '../../shared/btn-see-all/SeeAllBtn';
+import { ComingSoonCard } from './coming-soon-card/ComingSoonCard';
+import '../styles.css';
 
-export const ComingPreview = () => {
+export const ComingSoonPreview = () => {
   return (
     <article className='coming-preview-container'>
       <h2>Coming Soon</h2>

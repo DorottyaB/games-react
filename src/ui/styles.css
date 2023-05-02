@@ -1,0 +1,131 @@
+/* NEW RELEASES PREVIEW & CARD */
+.new-preview-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 14px;
+}
+
+.preview-card-container {
+  display: flex;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.preview-card-container img {
+  width: 100%;
+  height: auto;
+}
+
+.info-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(23, 23, 23, 0.5);
+  border-radius: var(--card-border-radius);
+  margin: 6px;
+  padding: 10px 8px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: repeat(2, auto);
+  row-gap: 10px;
+}
+
+h3 {
+  font-size: 18px;
+  grid-area: 1 / 1 / 3 / 2;
+  align-self: center;
+}
+
+/* COMING SOON PREVIEW & CARD */
+.coming-preview-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 14px;
+}
+
+.sm-horizontal {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  display: flex;
+  gap: 10px;
+  overflow-x: scroll;
+}
+
+.card-img-container {
+  border-radius: var(--card-border-radius);
+  overflow: hidden;
+  width: 185px;
+  margin-bottom: 10px;
+}
+
+.card-img-container img {
+  width: 100%;
+  height: auto;
+}
+
+.link-title {
+  font-size: 14px;
+}
+
+.date {
+  margin-top: 5px;
+  opacity: 0.6;
+  font-size: 13px;
+}
+
+/* POPULAR & CARD */
+.popular-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 14px;
+}
+
+.popular-card-container {
+  border-radius: var(--card-border-radius);
+  background-color: var(--nav-color);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.popular-card-container img {
+  width: 100%;
+}
+
+.popular-card-body {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  row-gap: 20px;
+  padding: 17px 13px;
+}
+
+.popular-card-body a:link,
+.popular-card-body a:visited {
+  font-size: 18px;
+}
+
+.popular-card-body ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.popular-card-body p {
+  opacity: 0.6;
+  font-size: 15px;
+  grid-column-start: 2;
+  justify-self: end;
+}
+
+a:link.genre-link,
+a:visited.genre-link {
+  text-decoration: underline;
+  font-size: 16px;
+  opacity: 0.8;
+}

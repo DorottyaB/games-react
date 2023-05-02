@@ -1,7 +1,7 @@
-import { ComingPreview } from '../../components/coming-preview/ComingPreview';
-import { Footer } from '../../components/footer/Footer';
-import { NewPreview } from '../../components/new-preview/NewPreview';
-import { Popular } from '../../components/popular/Popular';
+import { ComingSoonPreview } from '../../ui/coming-soon-preview/ComingSoonPreview';
+import { Footer } from '../../shared/footer/Footer';
+import { NewPreview } from '../../ui/new-preview/NewPreview';
+import { Popular } from '../../ui/popular/Popular';
 import './home.css';
 
 export const Home = () => {
@@ -9,7 +9,7 @@ export const Home = () => {
     <>
       <main>
         <NewPreview />
-        <ComingPreview />
+        <ComingSoonPreview />
         <Popular />
       </main>
       <Footer />

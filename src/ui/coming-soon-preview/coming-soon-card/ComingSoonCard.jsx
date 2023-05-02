@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import './coming-soon-card.css';
-import img1 from '../../assets/gollum.png';
+import '../../styles.css';
+import img1 from '../../../assets/gollum.png';
 
 export const ComingSoonCard = () => {
   return (

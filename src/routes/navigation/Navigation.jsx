@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useWindowDimensions from '../../custom-hooks/useWindowDimensions';
-import { Logo } from '../../components/logo/Logo';
-import { SearchBar } from '../../components/search-bar/SearchBar';
+import { Logo } from '../../shared/logo/Logo';
+import { SearchBar } from '../../shared/search-bar/SearchBar';
 import './navigation.css';
 
 export const Navigation = () => {

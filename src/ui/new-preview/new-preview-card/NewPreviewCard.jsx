@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Rating } from '../rating/Rating';
-import { PlatformList } from '../platform-list/PlatformList';
-import './new-preview-card.css';
-import img1 from '../../assets/hogwarts-legacy.png';
+import { Rating } from '../../../shared/rating/Rating';
+import { PlatformList } from '../../../shared/platform-list/PlatformList';
+import '../../styles.css';
+import img1 from '../../../assets/hogwarts-legacy.png';
 
 export const NewPreviewCard = () => {
   return (

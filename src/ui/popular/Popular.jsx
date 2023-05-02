@@ -1,6 +1,6 @@
-import { LoadMoreBtn } from '../btn-load-more/LoadMoreBtn';
-import { PopularCard } from '../popular-card/PopularCard';
-import './popular.css';
+import { LoadMoreBtn } from '../../shared/btn-load-more/LoadMoreBtn';
+import { PopularCard } from './popular-card/PopularCard';
+import '../styles.css';
 
 export const Popular = () => {
   return (
