@@ -5,6 +5,11 @@
   align-items: center;
   gap: 5px;
   justify-self: end;
+  transition: all 0.2s;
+}
+
+.see-all-btn:hover svg {
+  fill: var(--primary-color);
 }
 
 .see-all-btn:active {

@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useWindowDimensions from '../../custom-hooks/useWindowDimensions';
+import { MobileNavContext } from '../../contexts/MobileNavContext';
 import { Logo } from '../../shared/logo/Logo';
-import { SearchBar } from '../../shared/search-bar/SearchBar';
 import './navigation.css';
 
 export const Navigation = () => {
   const { width } = useWindowDimensions();
-  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const { isMobileNavOpen, setIsMobileNavOpen } = useContext(MobileNavContext);
   const [isGenreOpen, setIsGenreOpen] = useState(false);
   const [isPlatformOpen, setIsPlatformOpen] = useState(false);
 
@@ -140,7 +140,6 @@ export const Navigation = () => {
           </div>
         ) : null}
       </nav>
-      <SearchBar />
       <Outlet />
     </>
   );

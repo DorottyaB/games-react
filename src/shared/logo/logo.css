@@ -13,6 +13,7 @@ h1 {
   font-family: 'Bruno Ace', cursive;
   font-size: 22px;
   color: #f4f4f4;
+  font-weight: normal;
 }
 
 @media screen and (min-width: 1024px) {

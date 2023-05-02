@@ -1,4 +1,6 @@
 .load-more-btn {
+  grid-column-start: 1;
+  grid-column-end: -1;
   background-color: transparent;
   border: 2px solid var(--primary-color);
   border-radius: var(--card-border-radius);
@@ -8,12 +10,34 @@
   font-weight: bold;
   justify-self: center;
   font-size: 18px;
-  margin-top: 20px;
-  transition: all 0.2s;
+  margin-top: 40px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.load-more-btn::before {
+  content: '';
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: var(--primary-color);
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.load-more-btn:hover::before {
+  width: 105%;
+}
+
+.load-more-btn:hover {
+  color: var(--text-color);
 }
 
 .load-more-btn:active {
-  background-color: var(--primary-color);
-  color: var(--text-color);
   transform: scale(0.98);
 }

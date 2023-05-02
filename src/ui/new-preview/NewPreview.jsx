@@ -1,5 +1,5 @@
 import { SeeAllBtn } from '../../shared/btn-see-all/SeeAllBtn';
-import { NewPreviewCard } from './new-preview-card/NewPreviewCard';
+import { NewPreviewCard } from './NewPreviewCard';
 import '../styles.css';
 
 export const NewPreview = () => {

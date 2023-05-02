@@ -1,8 +1,8 @@
-import '../../styles.css';
-import img1 from '../../../assets/horizon.png';
+import img1 from '../../assets/horizon.png';
 import { Link } from 'react-router-dom';
-import { PlatformList } from '../../../shared/platform-list/PlatformList';
-import { Rating } from '../../../shared/rating/Rating';
+import { PlatformList } from '../../shared/platform-list/PlatformList';
+import { Rating } from '../../shared/rating/Rating';
+import '../styles.css';
 
 export const PopularCard = () => {
   return (

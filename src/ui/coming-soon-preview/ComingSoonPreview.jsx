@@ -1,5 +1,5 @@
 import { SeeAllBtn } from '../../shared/btn-see-all/SeeAllBtn';
-import { ComingSoonCard } from './coming-soon-card/ComingSoonCard';
+import { ComingSoonCard } from './ComingSoonCard';
 import '../styles.css';
 
 export const ComingSoonPreview = () => {

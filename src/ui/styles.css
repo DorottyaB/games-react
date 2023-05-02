@@ -1,8 +1,12 @@
+article {
+  display: grid;
+  grid-template-rows: max-content auto;
+  row-gap: 14px;
+}
+
 /* NEW RELEASES PREVIEW & CARD */
 .new-preview-container {
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: 14px;
 }
 
 .preview-card-container {
@@ -43,9 +47,7 @@ h3 {
 
 /* COMING SOON PREVIEW & CARD */
 .coming-preview-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  row-gap: 14px;
+  grid-template-columns: 1fr auto;
 }
 
 .sm-horizontal {
@@ -80,9 +82,7 @@ h3 {
 
 /* POPULAR & CARD */
 .popular-container {
-  display: grid;
   grid-template-columns: 1fr;
-  row-gap: 14px;
 }
 
 .popular-card-container {
@@ -95,6 +95,7 @@ h3 {
 
 .popular-card-container img {
   width: 100%;
+  height: auto;
 }
 
 .popular-card-body {
@@ -128,4 +129,102 @@ a:visited.genre-link {
   text-decoration: underline;
   font-size: 16px;
   opacity: 0.8;
+}
+
+@media screen and (min-width: 768px) {
+  .new-preview-container {
+    column-gap: 20px;
+  }
+
+  .popular-container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
+
+  .popular-container h2 {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+
+  .preview-card-container {
+    grid-column-start: auto;
+    grid-column-end: auto;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  article {
+    row-gap: 22px;
+    column-gap: 22px;
+  }
+
+  /* NEW RELEASES PREVIEW & CARD */
+  .new-preview-container {
+    grid-area: 2 / 1 / 3 / 2;
+    border-bottom: 1px solid rgba(245, 245, 245, 0.18);
+    padding-bottom: 20px;
+    padding-right: 21px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  /* COMING SOON PREVIEW & CARD */
+  .coming-preview-container {
+    grid-area: 2 / 2 / 4 / 3;
+    border-left: 1px solid rgba(245, 245, 245, 0.18);
+    padding-left: 21px;
+  }
+
+  .sm-horizontal {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    flex-direction: column;
+    gap: 22px;
+    overflow-x: auto;
+  }
+
+  .card-img-container {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .link-title {
+    font-size: 16px;
+  }
+
+  .date {
+    margin-top: 8px;
+    font-size: 15px;
+  }
+
+  /* POPULAR & CARD */
+  .popular-container {
+    grid-area: 3 / 1 / 4 / 2;
+    padding-right: 21px;
+  }
+
+  .popular-card-container {
+    transition: all 0.4s;
+  }
+
+  .popular-card-container:hover {
+    transform: scale(1.015);
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .popular-card-body a:link,
+  .popular-card-body a:visited {
+    font-size: 20px;
+  }
+
+  a:link.genre-link,
+  a:visited.genre-link {
+    font-size: 17px;
+  }
+
+  .popular-card-body p {
+    font-size: 16px;
+  }
 }

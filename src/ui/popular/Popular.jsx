@@ -1,5 +1,5 @@
 import { LoadMoreBtn } from '../../shared/btn-load-more/LoadMoreBtn';
-import { PopularCard } from './popular-card/PopularCard';
+import { PopularCard } from './PopularCard';
 import '../styles.css';
 
 export const Popular = () => {
