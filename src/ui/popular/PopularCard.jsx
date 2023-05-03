@@ -1,30 +1,27 @@
-import img1 from '../../assets/horizon.png';
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import { PlatformList } from '../../shared/platform-list/PlatformList';
 import { Rating } from '../../shared/rating/Rating';
 import '../styles.css';
 
-export const PopularCard = () => {
+export const PopularCard = ({ game }) => {
   return (
     <section className='popular-card-container'>
-      <img src={img1} height='185' alt='' />
+      <img src={game.background_image} width='355' height='200' alt='' />
       <div className='popular-card-body'>
-        <Link to=''>Horizon Forbidden West</Link>
-        <PlatformList />
+        <Link to={game.slug}>{game.name}</Link>
+        <PlatformList platforms={game.parent_platforms} />
         <ul>
-          <li>
-            <Link to='' className='genre-link'>
-              Action
-            </Link>
-          </li>
-          <li>
-            <Link to='' className='genre-link'>
-              RPG
-            </Link>
-          </li>
+          {game.genres.map(genre => (
+            <li key={genre.id}>
+              <Link to={genre.slug} className='genre-link'>
+                {genre.name}
+              </Link>
+            </li>
+          ))}
         </ul>
-        <Rating />
-        <p>21/4/2023</p>
+        <Rating rating={game.metacritic} />
+        <p>{game.released}</p>
       </div>
     </section>
   );

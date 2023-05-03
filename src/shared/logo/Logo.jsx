@@ -6,8 +6,8 @@ export const Logo = () => {
     <Link to='/' className='logo-container'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        width='38'
-        height='38'
+        width='34'
+        height='34'
         fill='#e57c5a'
         viewBox='0 0 256 256'
       >

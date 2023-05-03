@@ -5,6 +5,7 @@
   align-items: center;
   gap: 3px;
   justify-self: end;
+  align-self: start;
 }
 
 .rating-container svg {

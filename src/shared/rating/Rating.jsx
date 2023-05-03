@@ -4,7 +4,7 @@ import './rating.css';
 export const Rating = ({ rating = 0 }) => {
   return (
     <div className='rating-container'>
-      {rating}
+      {rating ? rating : 0}
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='24'

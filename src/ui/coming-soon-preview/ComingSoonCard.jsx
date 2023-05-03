@@ -1,17 +1,17 @@
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import '../styles.css';
-import img1 from '../../assets/gollum.png';
 
-export const ComingSoonCard = () => {
+export const ComingSoonCard = ({ game }) => {
   return (
     <div className='coming-soon-card-container'>
       <div className='card-img-container'>
-        <img src={img1} height='115' alt='' />
+        <img src={game.background_image} width='270' height='152' alt='' />
       </div>
-      <Link to='' className='link-title'>
-        The Lord of the Rings: Gollum
+      <Link to={game.slug} className='link-title'>
+        {game.name}
       </Link>
-      <p className='date'>Released on 25/5/2023</p>
+      <p className='date'>Released on {game.released}</p>
     </div>
   );
 };

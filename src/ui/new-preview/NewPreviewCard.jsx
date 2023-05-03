@@ -1,17 +1,17 @@
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import { Rating } from '../../shared/rating/Rating';
 import { PlatformList } from '../../shared/platform-list/PlatformList';
 import '../styles.css';
-import img1 from '../../assets/hogwarts-legacy.png';
 
-export const NewPreviewCard = () => {
+export const NewPreviewCard = ({ game }) => {
   return (
-    <Link to='' className='preview-card-container'>
-      <img src={img1} height='185' alt='' />
+    <Link to={game.slug} className='preview-card-container'>
+      <img src={game.background_image} width='355' height='200' alt='' />
       <div className='info-container'>
-        <h3>Hogwarts Legacy</h3>
-        <Rating />
-        <PlatformList platforms='' />
+        <h3>{game.name}</h3>
+        <Rating rating={game.metacritic} />
+        <PlatformList platforms={game.parent_platforms} />
       </div>
     </Link>
   );

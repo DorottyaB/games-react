@@ -65,7 +65,7 @@ nav {
 .nav-items button {
   color: var(--text-color);
   font-size: 22px;
-  font-weight: 500;
+  font-weight: bold;
   letter-spacing: 3px;
 }
 
@@ -83,6 +83,7 @@ nav {
 .dropdown-items li {
   font-size: 18px;
   margin-bottom: 10px;
+  font-weight: normal;
 }
 
 .dropdown-items li a:active {
@@ -93,12 +94,12 @@ nav {
   nav {
     grid-area: 1 / 1 / -2 / 2;
     width: max-content;
-    grid-template-columns: 190px;
+    grid-template-columns: 160px;
     grid-template-rows: max-content;
     row-gap: 70px;
-    /* padding: 46px 0 46px 60px; */
     box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
     background-color: var(--nav-color);
+    padding-top: 46px;
   }
 
   .hamburger {
@@ -118,7 +119,7 @@ nav {
     align-self: start;
     align-items: flex-start;
     text-align: left;
-    gap: 60px;
+    gap: 40px;
     z-index: 0;
     background-color: var(--nav-color);
     padding: 0;
@@ -130,14 +131,14 @@ nav {
   }
 
   .dropdown-items {
-    margin-top: -42px;
+    margin-top: -22px;
     margin-left: 15px;
   }
 }
 
 @media screen and (min-width: 1400px) {
   nav {
-    grid-template-columns: 240px;
+    grid-template-columns: 220px;
     padding: 46px 0 46px 60px;
   }
 }

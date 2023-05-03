@@ -14,8 +14,14 @@ main {
 
 @media screen and (min-width: 1024px) {
   main {
-    padding: 46px 60px 80px 40px;
+    padding-top: 46px;
     grid-template-columns: 72% 28%;
     row-gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  main {
+    padding: 46px 60px 80px 40px;
   }
 }

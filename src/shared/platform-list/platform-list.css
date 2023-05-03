@@ -1,5 +1,6 @@
 .platform-list-container {
   justify-self: end;
+  align-self: start;
   display: flex;
   align-items: center;
   gap: 5px;
