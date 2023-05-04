@@ -1,5 +1,5 @@
-import { useContext, useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import useWindowDimensions from '../../custom-hooks/useWindowDimensions';
 import { MobileNavContext } from '../../contexts/MobileNavContext';
 import { Logo } from '../../shared/logo/Logo';
@@ -10,6 +10,14 @@ export const Navigation = () => {
   const { isMobileNavOpen, setIsMobileNavOpen } = useContext(MobileNavContext);
   const [isGenreOpen, setIsGenreOpen] = useState(false);
   const [isPlatformOpen, setIsPlatformOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (isMobileNavOpen) {
+      setIsMobileNavOpen(!isMobileNavOpen);
+    }
+  }, [pathname]);
 
   return (
     <>
@@ -25,9 +33,9 @@ export const Navigation = () => {
         </div>
         {isMobileNavOpen || width >= 1024 ? (
           <div className='nav-items'>
-            <Link to='new'>New</Link>
-            <Link to='popular'>Popular</Link>
-            <Link to='comingSoon'>Coming Soon</Link>
+            <Link to='recentGames'>New</Link>
+            <Link to='sortedGames'>Popular</Link>
+            <Link to='upcomingGames'>Coming Soon</Link>
             <button onClick={() => setIsGenreOpen(prevState => !prevState)}>
               Genres
               <svg

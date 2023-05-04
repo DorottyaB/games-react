@@ -94,6 +94,7 @@ nav {
   nav {
     grid-area: 1 / 1 / -2 / 2;
     width: max-content;
+    min-height: 100vh;
     grid-template-columns: 160px;
     grid-template-rows: max-content;
     row-gap: 70px;

@@ -1,4 +1,4 @@
-main {
+main.main--home {
   padding: 0 40px 80px 40px;
   display: grid;
   grid-template-columns: 1fr;
@@ -7,21 +7,14 @@ main {
 }
 
 @media screen and (min-width: 768px) {
-  main {
+  main.main--home {
     row-gap: 40px;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  main {
-    padding-top: 46px;
+  main.main--home {
     grid-template-columns: 72% 28%;
     row-gap: 20px;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  main {
-    padding: 46px 60px 80px 40px;
   }
 }

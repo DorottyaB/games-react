@@ -1,0 +1,43 @@
+main.main--game-list {
+  padding: 0 40px 80px 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+  position: relative;
+}
+
+main.main--game-list h2 {
+  font-size: 24px;
+}
+
+.game-list-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .game-list-container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  main.main--game-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  main.main--game-list h2 {
+    font-size: 28px;
+  }
+
+  .game-list-container {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 26px;
+    row-gap: 16px;
+    margin-top: 2px;
+  }
+}
