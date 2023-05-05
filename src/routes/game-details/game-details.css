@@ -13,13 +13,22 @@
 .main--game article {
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   display: grid;
   grid-template-columns: 3fr 2fr;
-  grid-template-rows: 353px repeat(4, auto);
-  row-gap: 24px;
-  padding: 0 40px 0 60px;
+  grid-template-rows: 374px repeat(4, auto);
+  row-gap: 0;
+  column-gap: 70px;
+  padding: 0 60px 20px 40px;
   margin-top: 20px;
   position: relative;
+}
+
+.released {
+  grid-area: 2 / 1 / 3 / 2;
+  color: #c8c8c8;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .game-title {
@@ -29,13 +38,7 @@
   line-height: 120%;
   font-weight: normal;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
-}
-
-.released {
-  grid-area: 2 / 1 / 3 / 2;
-  color: #c8c8c8;
-  margin-bottom: -20px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 24px;
 }
 
 .main--game article .platform-list-container {
@@ -47,4 +50,102 @@
 .main--game article .platform-list-container svg {
   width: 24px;
   height: 24px;
+}
+
+.game-genre-list {
+  grid-area: 5 / 1 / 6 / 2;
+  align-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+a.game-genre:link,
+a.game-genre:visited {
+  font-family: 'Bowlby One SC', cursive;
+  font-size: 20px;
+  text-decoration: underline;
+  letter-spacing: 2px;
+}
+
+.game-ratings-container {
+  grid-area: 5 / 2 / 6 / 3;
+  align-self: end;
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-ratings-container div {
+  text-align: center;
+}
+
+.game-ratings-container div p {
+  font-size: 18px;
+  color: #c8c8c8;
+}
+
+.game-ratings-container div h4 {
+  font-family: 'Bowlby One SC', cursive;
+  font-weight: normal;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+.available-on {
+  margin-left: 40px;
+  margin-top: 40px;
+  color: var(--light-gray);
+  font-size: 20px;
+}
+
+.available-on span {
+  color: var(--text-color);
+}
+
+.available-on span:not(:last-of-type)::after {
+  content: ', ';
+}
+
+.screenshots {
+  margin: 46px 60px 0 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(316px, 1fr));
+  gap: 14px;
+  position: relative;
+}
+
+.screenshot {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.screenshot:hover {
+  transform: scale(1.02);
+}
+
+dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 20px;
+  border: none;
+  background-color: var(--nav-color);
+  text-align: right;
+  /* width: 100%;
+  height: 100%; */
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.btn-close-modal {
+  margin-bottom: 20px;
+}
+
+dialog img {
+  max-width: 1000px;
 }

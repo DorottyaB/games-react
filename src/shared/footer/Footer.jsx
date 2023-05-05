@@ -24,13 +24,13 @@ export const Footer = () => {
       <Logo />
       <ul className='footer-nav-items'>
         <li>
-          <Link to='new'>New</Link>
+          <Link to='/recentGames'>New</Link>
         </li>
         <li>
-          <Link to='popular'>Popular</Link>
+          <Link to='/sortedGames'>Popular</Link>
         </li>
         <li>
-          <Link to='comingSoon'>Coming Soon</Link>
+          <Link to='/upcomingGames'>Coming Soon</Link>
         </li>
       </ul>
       <p>
