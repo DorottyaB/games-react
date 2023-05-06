@@ -1,5 +1,4 @@
 main.main--game-list {
-  padding: 0 40px 80px 40px;
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 20px;
@@ -14,6 +13,42 @@ main.main--game-list h2 {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 10px;
+}
+
+.btn-navigate {
+  background-color: transparent;
+  font-size: 18px;
+  color: var(--light-gray);
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  transition: 0.2s;
+  margin-top: 10px;
+}
+
+.btn-navigate-prev {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.btn-navigate-prev:disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
+.btn-navigate-next {
+  grid-column-start: -2;
+  grid-column-end: -1;
+  justify-self: end;
+}
+
+.btn-navigate:not(.btn-navigate:disabled):hover,
+.btn-navigate:not(.btn-navigate:disabled):active {
+  color: var(--text-color);
+}
+.btn-navigate:not(.btn-navigate:disabled):hover svg,
+.btn-navigate:not(.btn-navigate:disabled):active svg {
+  fill: var(--text-color);
 }
 
 @media screen and (min-width: 768px) {

@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap');
 
-.main--game {
+main.main--game {
   display: grid;
   padding-left: 0;
   padding-right: 0;
+  padding-bottom: 80px;
+  position: relative;
 }
 
-.main--game .search-bar-container {
+main.main--game .search-bar-container {
   margin-right: 60px;
 }
 
@@ -21,7 +23,6 @@
   column-gap: 70px;
   padding: 0 60px 20px 40px;
   margin-top: 20px;
-  position: relative;
 }
 
 .released {
@@ -112,40 +113,30 @@ a.game-genre:visited {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(316px, 1fr));
   gap: 14px;
-  position: relative;
 }
 
 .screenshot {
-  cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s linear 0.25s;
 }
 
 .screenshot:hover {
-  transform: scale(1.02);
+  box-shadow: var(--card-shadow);
+  z-index: 5;
+  transform: scale(1.3);
 }
 
-dialog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding-top: 20px;
-  border: none;
+.btn-show-screenshots {
   background-color: var(--nav-color);
-  text-align: right;
-  /* width: 100%;
-  height: 100%; */
+  font-size: 18px;
+  color: var(--light-gray);
+  transition: all 0.2s;
 }
 
-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.6);
+.btn-show-screenshots:hover,
+.btn-show-screenshots:active {
+  color: var(--text-color);
+  filter: brightness(110%);
 }
 
-.btn-close-modal {
-  margin-bottom: 20px;
-}
-
-dialog img {
-  max-width: 1000px;
+@media screen and (min-width: 768px) {
 }

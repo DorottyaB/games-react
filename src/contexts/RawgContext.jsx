@@ -49,7 +49,7 @@ export const RawgProvider = ({ children }) => {
           .split('T')[0]; // get the date 30 days ago in the format "yyyy-mm-dd"
         const params = `&dates=${thirtyDaysAgo},${
           new Date().toISOString().split('T')[0]
-        }&ordering=-added&page_size=50&parent_platforms=1,2,3,5,6,7`;
+        }&ordering=-added&page_size=39&parent_platforms=1,2,3,5,6,7`;
         const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
         setRecentGames(data.results);
       } catch (error) {
@@ -64,7 +64,7 @@ export const RawgProvider = ({ children }) => {
     const currentYear = new Date().getFullYear();
     const params = `&dates=${
       new Date().toISOString().split('T')[0]
-    },${currentYear}-12-31&ordering=-added&page_size=100&parent_platforms=1,2,3,5,6,7`;
+    },${currentYear}-12-31&ordering=-added&page_size=39&parent_platforms=1,2,3,5,6,7`;
     const fetchData = async () => {
       try {
         const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
@@ -132,6 +132,7 @@ export const RawgProvider = ({ children }) => {
     upcomingGames,
     sortedGames,
     searchedGame,
+    currentPage,
     filterByGenre,
     filterByPlatform,
     searchGame,

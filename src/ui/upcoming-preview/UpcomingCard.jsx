@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
+import { formatDate } from '../../utils/Utils';
 import '../styles.css';
 
 export const UpcomingCard = ({ game }) => {
@@ -11,7 +12,7 @@ export const UpcomingCard = ({ game }) => {
       <Link to={`/games/${game.slug}`} className='link-title'>
         {game.name}
       </Link>
-      <p className='date'>Released on {game.released}</p>
+      <p className='date'>Released on {formatDate(game.released)}</p>
     </div>
   );
 };

@@ -50,6 +50,12 @@ body {
   color: var(--text-color);
 }
 
+main,
+main.main--home,
+main.main--game-list {
+  padding: 0 40px 80px 40px;
+}
+
 h2 {
   font-size: 20px;
   font-weight: 700;
@@ -79,7 +85,10 @@ img {
     grid-template-rows: max-content 1fr max-content;
   }
 
-  main {
+  main,
+  main.main--home,
+  main.main--game-list,
+  main.main--game {
     padding-top: 46px;
   }
 }
@@ -89,7 +98,9 @@ img {
     font-size: 24px;
   }
 
-  main {
+  main,
+  main.main--home,
+  main.main--game-list {
     padding: 46px 60px 80px 40px;
   }
 }

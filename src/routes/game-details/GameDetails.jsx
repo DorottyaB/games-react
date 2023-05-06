@@ -2,9 +2,11 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { RawgContext } from '../../contexts/RawgContext';
 import { MobileNavContext } from '../../contexts/MobileNavContext';
+import { formatDate } from '../../utils/Utils';
 import { SearchBar } from '../../shared/search-bar/SearchBar';
 import { PlatformList } from '../../shared/platform-list/PlatformList';
 import { Footer } from '../../shared/footer/Footer';
+import noImage from '../../assets/no-image.png';
 import './game-details.css';
 
 export const GameDetails = () => {
@@ -12,7 +14,7 @@ export const GameDetails = () => {
   const { recentGames, sortedGames, upcomingGames } = useContext(RawgContext);
   const [game, setGame] = useState();
   const { isMobileNavOpen } = useContext(MobileNavContext);
-  const [url, setUrl] = useState('');
+  const [index, setIndex] = useState([0, 4]);
 
   useEffect(() => {
     function findGame() {
@@ -20,17 +22,13 @@ export const GameDetails = () => {
       const foundGame = games.find(g => g.slug === slug);
       setGame(foundGame);
     }
-
     findGame();
   }, []);
 
-  const openModal = img => {
-    setUrl(img);
-    document.querySelector('dialog').showModal();
-  };
-
-  const closeModal = () => {
-    document.querySelector('dialog').close();
+  const loadMore = () => {
+    setIndex(prevValue => {
+      return [0, prevValue[1] + 6];
+    });
   };
 
   return (
@@ -49,10 +47,10 @@ export const GameDetails = () => {
                 rgba(23, 23, 23, 0.9268440652628239) 20%,
                 rgba(23, 23, 23, 0.8540149336101628) 30%,
                 rgba(23, 23, 23, 0) 100%
-              ), url(${game.background_image})`,
+              ), url(${game.background_image !== null ? game.background_image : noImage})`,
               }}
             >
-              <p className='released'>Released on {game.released}</p>
+              <p className='released'>Released on {formatDate(game.released)}</p>
               <h2 className='game-title'>{game.name}</h2>
               <PlatformList platforms={game.parent_platforms} />
               <ul className='game-genre-list'>
@@ -67,7 +65,7 @@ export const GameDetails = () => {
               <section className='game-ratings-container'>
                 <div>
                   <p>{game.ratings_count} ratings</p>
-                  <h4>{game.ratings[0].title}</h4>
+                  <h4>{game.ratings.length > 0 ? game.ratings[0].title : '-'}</h4>
                 </div>
                 <div>
                   <p>Metacritic</p>
@@ -82,22 +80,18 @@ export const GameDetails = () => {
               ))}
             </p>
             <div className='screenshots'>
-              {game.short_screenshots.map(img => (
-                <img
-                  onClick={() => openModal(img.image)}
-                  className='screenshot'
-                  width='316'
-                  height='192'
-                  key={img.id}
-                  src={img.image}
-                ></img>
-              ))}
-              <dialog>
-                <button className='btn-close-modal' onClick={closeModal}>
-                  &times;
+              {game.short_screenshots !== null
+                ? game.short_screenshots.slice(index[0], index[1]).map(img => (
+                    <Link key={img.id} to={img.image} target='_blank'>
+                      <img className='screenshot' width='316' height='192' src={img.image}></img>
+                    </Link>
+                  ))
+                : null}
+              {game.short_screenshots !== null && game.short_screenshots.length > index[1] ? (
+                <button className='btn-show-screenshots' onClick={loadMore}>
+                  Show All
                 </button>
-                <img width='500' height='400' src={url} alt='' />
-              </dialog>
+              ) : null}
             </div>
           </>
         )}
