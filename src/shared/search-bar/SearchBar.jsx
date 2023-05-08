@@ -1,12 +1,37 @@
+import { useContext, useState } from 'react';
 import useWindowDimensions from '../../custom-hooks/useWindowDimensions';
 import './search-bar.css';
+import { RawgContext } from '../../contexts/RawgContext';
+import { useNavigate } from 'react-router-dom';
 
 export const SearchBar = () => {
   const { width } = useWindowDimensions();
+  const [query, setQuery] = useState('');
+  const { searchGame } = useContext(RawgContext);
+  const navigate = useNavigate();
+
+  const handleChange = event => {
+    setQuery(event.target.value);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    searchGame(query);
+    navigate(`/search/${query}`);
+    setQuery('');
+  };
 
   return (
-    <div className='search-bar-container'>
-      <input type='search' name='search' id='search' placeholder='Search video games...' />
+    <form onSubmit={handleSubmit} className='search-bar-container'>
+      <input
+        type='search'
+        name='search'
+        id='search'
+        onChange={handleChange}
+        value={query}
+        placeholder='Search video games...'
+        required
+      />
       <button type='submit' className='search-btn'>
         <div className='svg-wrapper-1'>
           <div className='svg-wrapper'>
@@ -23,6 +48,6 @@ export const SearchBar = () => {
         </div>
         {width >= 1024 && <span>Search</span>}
       </button>
-    </div>
+    </form>
   );
 };

@@ -5,7 +5,7 @@ import { MobileNavContext } from '../../contexts/MobileNavContext';
 import { SearchBar } from '../../shared/search-bar/SearchBar';
 import { GameCard } from '../../ui/GameCard';
 import { Footer } from '../../shared/footer/Footer';
-import './game-list.css';
+import './games-list.css';
 
 export const GamesList = () => {
   const { filter } = useParams();

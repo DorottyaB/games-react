@@ -10,6 +10,9 @@ input[type='search'] {
   border-radius: 8px;
   padding: 10px 15px;
   border: none;
+  font-size: 16px;
+  font-family: inherit;
+  letter-spacing: 0.15em;
 }
 
 input[type='search']::placeholder {
