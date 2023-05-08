@@ -56,7 +56,7 @@ export const GameDetails = () => {
               <ul className='game-genre-list'>
                 {game.genres.map(genre => (
                   <li key={genre.id}>
-                    <Link to={`/${genre.slug}`} className='game-genre'>
+                    <Link to={`/genres/${genre.slug}`} className='game-genre'>
                       {genre.name}
                     </Link>
                   </li>
@@ -64,7 +64,7 @@ export const GameDetails = () => {
               </ul>
               <section className='game-ratings-container'>
                 <div>
-                  <p>{game.ratings_count} ratings</p>
+                  <p>{game.ratings_count} rating(s)</p>
                   <h4>{game.ratings.length > 0 ? game.ratings[0].title : '-'}</h4>
                 </div>
                 <div>

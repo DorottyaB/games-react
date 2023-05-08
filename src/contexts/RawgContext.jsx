@@ -61,10 +61,18 @@ export const RawgProvider = ({ children }) => {
 
   // UPCOMING GAMES
   useEffect(() => {
-    const currentYear = new Date().getFullYear();
+    function getDate365DaysFromNow() {
+      const currentDate = new Date();
+      const futureDate = new Date(currentDate.getTime() + 365 * 24 * 60 * 60 * 1000);
+      const year = futureDate.getFullYear();
+      const month = (futureDate.getMonth() + 1).toString().padStart(2, '0');
+      const day = futureDate.getDate().toString().padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+    const futureDate = getDate365DaysFromNow();
     const params = `&dates=${
       new Date().toISOString().split('T')[0]
-    },${currentYear}-12-31&ordering=-added&page_size=39&parent_platforms=1,2,3,5,6,7`;
+    },${futureDate}&ordering=-added&page_size=39&parent_platforms=1,2,3,5,6,7`;
     const fetchData = async () => {
       try {
         const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
@@ -78,7 +86,16 @@ export const RawgProvider = ({ children }) => {
 
   // POPULAR GAMES
   useEffect(() => {
-    const params = `&dates=2013-01-01,${
+    function getDate10YearsAgo() {
+      const currentDate = new Date();
+      const pastDate = new Date(currentDate.getTime() - 10 * 365 * 24 * 60 * 60 * 1000);
+      const year = pastDate.getFullYear();
+      const month = (pastDate.getMonth() + 1).toString().padStart(2, '0');
+      const day = pastDate.getDate().toString().padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+    const pastDate = getDate10YearsAgo();
+    const params = `&dates=${pastDate},${
       new Date().toISOString().split('T')[0]
     }&ordering=-metacritic&page_size=18&page=${currentPage}&parent_platforms=1,2,3,5,6,7`;
     const fetchData = async () => {

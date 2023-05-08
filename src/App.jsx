@@ -15,6 +15,8 @@ function App() {
           <Route path='/' element={<Navigation />}>
             <Route index element={<Home />} />
             <Route path=':filter' element={<GamesList />} />
+            <Route path='genres/:filter' element={<GamesList />} />
+            <Route path='platforms/:filter' element={<GamesList />} />
             <Route path='games/:slug' element={<GameDetails />} />
           </Route>
         </Routes>

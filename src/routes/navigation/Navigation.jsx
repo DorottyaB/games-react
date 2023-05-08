@@ -52,61 +52,61 @@ export const Navigation = () => {
             {isGenreOpen && (
               <ul className='dropdown-items'>
                 <li>
-                  <Link to='action'>Action</Link>
+                  <Link to='genres/action'>Action</Link>
                 </li>
                 <li>
-                  <Link to='adventure'>Adventure</Link>
+                  <Link to='genres/adventure'>Adventure</Link>
                 </li>
                 <li>
-                  <Link to='arcade'>Arcade</Link>
+                  <Link to='genres/arcade'>Arcade</Link>
                 </li>
                 <li>
-                  <Link to='boardGames'>Board Games</Link>
+                  <Link to='genres/boardGames'>Board Games</Link>
                 </li>
                 <li>
-                  <Link to='card'>Card</Link>
+                  <Link to='genres/card'>Card</Link>
                 </li>
                 <li>
-                  <Link to='casual'>Casual</Link>
+                  <Link to='genres/casual'>Casual</Link>
                 </li>
                 <li>
-                  <Link to='educational'>Educational</Link>
+                  <Link to='genres/educational'>Educational</Link>
                 </li>
                 <li>
-                  <Link to='family'>Family</Link>
+                  <Link to='genres/family'>Family</Link>
                 </li>
                 <li>
-                  <Link to='fighting'>Fighting</Link>
+                  <Link to='genres/fighting'>Fighting</Link>
                 </li>
                 <li>
-                  <Link to='indie'>Indie</Link>
+                  <Link to='genres/indie'>Indie</Link>
                 </li>
                 <li>
-                  <Link to='multiplayer'>Multiplayer</Link>
+                  <Link to='genres/multiplayer'>Multiplayer</Link>
                 </li>
                 <li>
-                  <Link to='platformer'>Platformer</Link>
+                  <Link to='genres/platformer'>Platformer</Link>
                 </li>
                 <li>
-                  <Link to='puzzle'>Puzzle</Link>
+                  <Link to='genres/puzzle'>Puzzle</Link>
                 </li>
                 <li>
-                  <Link to='racing'>Racing</Link>
+                  <Link to='genres/racing'>Racing</Link>
                 </li>
                 <li>
-                  <Link to='rpg'>RPG</Link>
+                  <Link to='genres/rpg'>RPG</Link>
                 </li>
                 <li>
-                  <Link to='simulation'>Simulation</Link>
+                  <Link to='genres/simulation'>Simulation</Link>
                 </li>
                 <li>
-                  <Link to='shooter'>Shooter</Link>
+                  <Link to='genres/shooter'>Shooter</Link>
                 </li>
                 <li>
-                  <Link to='sports'>Sports</Link>
+                  <Link to='genres/sports'>Sports</Link>
                 </li>
                 <li>
-                  <Link to='strategy'>Strategy</Link>
+                  <Link to='genres/strategy'>Strategy</Link>
                 </li>
               </ul>
             )}
@@ -126,22 +126,22 @@ export const Navigation = () => {
             {isPlatformOpen && (
               <ul className='dropdown-items'>
                 <li>
-                  <Link to='pc'>PC</Link>
+                  <Link to='platforms/pc'>PC</Link>
                 </li>
                 <li>
-                  <Link to='playstation'>PlayStation</Link>
+                  <Link to='platforms/playstation'>PlayStation</Link>
                 </li>
                 <li>
-                  <Link to='xbox'>Xbox</Link>
+                  <Link to='platforms/xbox'>Xbox</Link>
                 </li>
                 <li>
-                  <Link to='macOS'>MacOS</Link>
+                  <Link to='platforms/macOS'>MacOS</Link>
                 </li>
                 <li>
-                  <Link to='nintento'>Nintento</Link>
+                  <Link to='platforms/nintento'>Nintento</Link>
                 </li>
                 <li>
-                  <Link to='linux'>Linux</Link>
+                  <Link to='platforms/linux'>Linux</Link>
                 </li>
               </ul>
             )}
