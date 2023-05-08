@@ -22,7 +22,7 @@ export const PlatformList = ({ platforms }) => {
       component: <XboxLogo key='3' />,
     },
     {
-      name: 'macos',
+      name: 'mac',
       component: <MacOSLogo key='4' />,
     },
     {

@@ -61,7 +61,7 @@ export const Navigation = () => {
                   <Link to='genres/arcade'>Arcade</Link>
                 </li>
                 <li>
-                  <Link to='genres/boardGames'>Board Games</Link>
+                  <Link to='genres/board-games'>Board Games</Link>
                 </li>
                 <li>
                   <Link to='genres/card'>Card</Link>
@@ -82,7 +82,7 @@ export const Navigation = () => {
                   <Link to='genres/indie'>Indie</Link>
                 </li>
                 <li>
-                  <Link to='genres/multiplayer'>Multiplayer</Link>
+                  <Link to='genres/massively-multiplayer'>Multiplayer</Link>
                 </li>
                 <li>
                   <Link to='genres/platformer'>Platformer</Link>
@@ -126,22 +126,22 @@ export const Navigation = () => {
             {isPlatformOpen && (
               <ul className='dropdown-items'>
                 <li>
-                  <Link to='platforms/pc'>PC</Link>
+                  <Link to='platforms/1'>PC</Link>
                 </li>
                 <li>
-                  <Link to='platforms/playstation'>PlayStation</Link>
+                  <Link to='platforms/2'>PlayStation</Link>
                 </li>
                 <li>
-                  <Link to='platforms/xbox'>Xbox</Link>
+                  <Link to='platforms/3'>Xbox</Link>
                 </li>
                 <li>
-                  <Link to='platforms/macOS'>MacOS</Link>
+                  <Link to='platforms/7'>Nintento</Link>
                 </li>
                 <li>
-                  <Link to='platforms/nintento'>Nintento</Link>
+                  <Link to='platforms/5'>MacOS</Link>
                 </li>
                 <li>
-                  <Link to='platforms/linux'>Linux</Link>
+                  <Link to='platforms/6'>Linux</Link>
                 </li>
               </ul>
             )}

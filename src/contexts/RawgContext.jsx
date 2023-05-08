@@ -49,15 +49,19 @@ export const RawgProvider = ({ children }) => {
           .split('T')[0]; // get the date 30 days ago in the format "yyyy-mm-dd"
         const params = `&dates=${thirtyDaysAgo},${
           new Date().toISOString().split('T')[0]
-        }&ordering=-added&page_size=39&parent_platforms=1,2,3,5,6,7`;
+        }&ordering=-added&page_size=18&page=${currentPage}&parent_platforms=1,2,3,5,6,7`;
         const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
-        setRecentGames(data.results);
+        if (currentPage > 1) {
+          setRecentGames(prevGames => [...prevGames, ...data.results]);
+        } else {
+          setRecentGames(data.results);
+        }
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
-  }, []);
+  }, [currentPage]);
 
   // UPCOMING GAMES
   useEffect(() => {
@@ -72,17 +76,21 @@ export const RawgProvider = ({ children }) => {
     const futureDate = getDate365DaysFromNow();
     const params = `&dates=${
       new Date().toISOString().split('T')[0]
-    },${futureDate}&ordering=-added&page_size=39&parent_platforms=1,2,3,5,6,7`;
+    },${futureDate}&ordering=-added&page=${currentPage}&page_size=18&parent_platforms=1,2,3,5,6,7`;
     const fetchData = async () => {
       try {
         const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
-        setUpcomingGames(data.results);
+        if (currentPage > 1) {
+          setUpcomingGames(prevGames => [...prevGames, ...data.results]);
+        } else {
+          setUpcomingGames(data.results);
+        }
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
-  }, []);
+  }, [currentPage]);
 
   // POPULAR GAMES
   useEffect(() => {
@@ -125,9 +133,13 @@ export const RawgProvider = ({ children }) => {
 
   const filterByGenre = async genre => {
     try {
-      const params = `&genres=${genre}`;
+      const params = `&genres=${genre}&ordering=-added&page_size=18&page=${currentPage}`;
       const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
-      setFilteredByGenre(data.results);
+      if (currentPage > 1) {
+        setGames(prevGames => [...prevGames, ...data.results]);
+      } else {
+        setGames(data.results);
+      }
     } catch (error) {
       console.error(error);
     }
@@ -135,9 +147,13 @@ export const RawgProvider = ({ children }) => {
 
   const filterByPlatform = async platform => {
     try {
-      const params = `&platforms=${platform}`;
+      const params = `&parent_platforms=${platform}&ordering=-added&page_size=18&page=${currentPage}`;
       const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
-      setFilteredByPlatform(data.results);
+      if (currentPage > 1) {
+        setGames(prevGames => [...prevGames, ...data.results]);
+      } else {
+        setGames(data.results);
+      }
     } catch (error) {
       console.error(error);
     }

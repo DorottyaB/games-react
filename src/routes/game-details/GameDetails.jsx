@@ -11,15 +11,15 @@ import './game-details.css';
 
 export const GameDetails = () => {
   const { slug } = useParams();
-  const { recentGames, sortedGames, upcomingGames } = useContext(RawgContext);
+  const { games, recentGames, sortedGames, upcomingGames } = useContext(RawgContext);
   const [game, setGame] = useState();
   const { isMobileNavOpen } = useContext(MobileNavContext);
   const [index, setIndex] = useState([0, 4]);
 
   useEffect(() => {
     function findGame() {
-      const games = [...recentGames, ...sortedGames, ...upcomingGames];
-      const foundGame = games.find(g => g.slug === slug);
+      const allGames = [...games, ...recentGames, ...sortedGames, ...upcomingGames];
+      const foundGame = allGames.find(g => g.slug === slug);
       setGame(foundGame);
     }
     findGame();

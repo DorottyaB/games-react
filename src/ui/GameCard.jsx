@@ -21,7 +21,7 @@ export const GameCard = ({ game }) => {
         <ul>
           {game.genres.map(genre => (
             <li key={genre.id}>
-              <Link to={genre.slug} className='genre-link'>
+              <Link to={`/genres/${genre.slug}`} className='genre-link'>
                 {genre.name}
               </Link>
             </li>
