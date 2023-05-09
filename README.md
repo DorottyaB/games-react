@@ -30,4 +30,4 @@ Users are able to:
 
 ## Author
 
-- Website - [Dorottya](https://github.com/DorottyaB)
+Designed and coded by [Dorottya](https://github.com/DorottyaB)
