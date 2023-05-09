@@ -86,7 +86,8 @@ nav {
   font-weight: normal;
 }
 
-.dropdown-items li a:active {
+.nav-items a.active,
+.dropdown-items li a.active {
   color: var(--primary-color);
 }
 

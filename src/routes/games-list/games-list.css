@@ -1,6 +1,7 @@
 main.main--game-list {
   display: grid;
   grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, max-content) auto;
   row-gap: 20px;
   position: relative;
 }
@@ -29,6 +30,7 @@ main.main--game-list h2 {
 .btn-navigate-prev {
   grid-column-start: 1;
   grid-column-end: 2;
+  justify-self: start;
 }
 
 .btn-navigate-prev:disabled {

@@ -11,8 +11,9 @@ export const NewPreview = () => {
     <article className='new-preview-container'>
       <h2>New Releases</h2>
       <SeeAllBtn path='recentGames' />
-      {recentGames &&
-        recentGames.slice(0, 2).map(game => <NewPreviewCard key={game.id} game={game} />)}
+      {recentGames?.slice(0, 2).map(game => (
+        <NewPreviewCard key={game.id} game={game} />
+      ))}
     </article>
   );
 };

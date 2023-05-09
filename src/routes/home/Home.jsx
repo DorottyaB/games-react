@@ -1,25 +1,35 @@
 import { useContext } from 'react';
 import { MobileNavContext } from '../../contexts/MobileNavContext';
+import { RawgContext } from '../../contexts/RawgContext';
 import { SearchBar } from '../../shared/search-bar/SearchBar';
 import { NewPreview } from '../../ui/new-preview/NewPreview';
 import { UpcomingPreview } from '../../ui/upcoming-preview/UpcomingPreview';
 import { Popular } from '../../ui/popular/Popular';
-import { Footer } from '../../shared/footer/Footer';
+import { Spinner } from '../../shared/spinner/Spinner';
+import { Error } from '../../shared/error/Error';
 import './home.css';
 
 export const Home = () => {
   const { isMobileNavOpen } = useContext(MobileNavContext);
+  const { isLoading, error } = useContext(RawgContext);
+
+  if (error) {
+    return <Error />;
+  }
 
   return (
     <>
-      <main className='main--home'>
-        <div className='overlay' hidden={!isMobileNavOpen}></div>
-        <SearchBar />
-        <NewPreview />
-        <UpcomingPreview />
-        <Popular />
-      </main>
-      <Footer />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <main className='main--home'>
+          <div className='overlay' hidden={!isMobileNavOpen}></div>
+          <SearchBar />
+          <NewPreview />
+          <UpcomingPreview />
+          <Popular />
+        </main>
+      )}
     </>
   );
 };

@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import useWindowDimensions from '../../custom-hooks/useWindowDimensions';
 import { MobileNavContext } from '../../contexts/MobileNavContext';
 import { Logo } from '../../shared/logo/Logo';
 import './navigation.css';
+import { Footer } from '../../shared/footer/Footer';
 
 export const Navigation = () => {
   const { width } = useWindowDimensions();
@@ -33,9 +34,9 @@ export const Navigation = () => {
         </div>
         {isMobileNavOpen || width >= 1024 ? (
           <div className='nav-items'>
-            <Link to='recentGames'>New</Link>
-            <Link to='sortedGames'>Popular</Link>
-            <Link to='upcomingGames'>Coming Soon</Link>
+            <NavLink to='recentGames'>New</NavLink>
+            <NavLink to='sortedGames'>Popular</NavLink>
+            <NavLink to='upcomingGames'>Coming Soon</NavLink>
             <button onClick={() => setIsGenreOpen(prevState => !prevState)}>
               Genres
               <svg
@@ -52,61 +53,61 @@ export const Navigation = () => {
             {isGenreOpen && (
               <ul className='dropdown-items'>
                 <li>
-                  <Link to='genres/action'>Action</Link>
+                  <NavLink to='genres/action'>Action</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/adventure'>Adventure</Link>
+                  <NavLink to='genres/adventure'>Adventure</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/arcade'>Arcade</Link>
+                  <NavLink to='genres/arcade'>Arcade</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/board-games'>Board Games</Link>
+                  <NavLink to='genres/board-games'>Board Games</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/card'>Card</Link>
+                  <NavLink to='genres/card'>Card</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/casual'>Casual</Link>
+                  <NavLink to='genres/casual'>Casual</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/educational'>Educational</Link>
+                  <NavLink to='genres/educational'>Educational</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/family'>Family</Link>
+                  <NavLink to='genres/family'>Family</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/fighting'>Fighting</Link>
+                  <NavLink to='genres/fighting'>Fighting</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/indie'>Indie</Link>
+                  <NavLink to='genres/indie'>Indie</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/massively-multiplayer'>Multiplayer</Link>
+                  <NavLink to='genres/massively-multiplayer'>Multiplayer</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/platformer'>Platformer</Link>
+                  <NavLink to='genres/platformer'>Platformer</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/puzzle'>Puzzle</Link>
+                  <NavLink to='genres/puzzle'>Puzzle</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/racing'>Racing</Link>
+                  <NavLink to='genres/racing'>Racing</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/rpg'>RPG</Link>
+                  <NavLink to='genres/role-playing-games-rpg'>RPG</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/simulation'>Simulation</Link>
+                  <NavLink to='genres/simulation'>Simulation</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/shooter'>Shooter</Link>
+                  <NavLink to='genres/shooter'>Shooter</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/sports'>Sports</Link>
+                  <NavLink to='genres/sports'>Sports</NavLink>
                 </li>
                 <li>
-                  <Link to='genres/strategy'>Strategy</Link>
+                  <NavLink to='genres/strategy'>Strategy</NavLink>
                 </li>
               </ul>
             )}
@@ -126,22 +127,22 @@ export const Navigation = () => {
             {isPlatformOpen && (
               <ul className='dropdown-items'>
                 <li>
-                  <Link to='platforms/1'>PC</Link>
+                  <NavLink to='platforms/1'>PC</NavLink>
                 </li>
                 <li>
-                  <Link to='platforms/2'>PlayStation</Link>
+                  <NavLink to='platforms/2'>PlayStation</NavLink>
                 </li>
                 <li>
-                  <Link to='platforms/3'>Xbox</Link>
+                  <NavLink to='platforms/3'>Xbox</NavLink>
                 </li>
                 <li>
-                  <Link to='platforms/7'>Nintento</Link>
+                  <NavLink to='platforms/7'>Nintento</NavLink>
                 </li>
                 <li>
-                  <Link to='platforms/5'>MacOS</Link>
+                  <NavLink to='platforms/5'>MacOS</NavLink>
                 </li>
                 <li>
-                  <Link to='platforms/6'>Linux</Link>
+                  <NavLink to='platforms/6'>Linux</NavLink>
                 </li>
               </ul>
             )}
@@ -149,6 +150,7 @@ export const Navigation = () => {
         ) : null}
       </nav>
       <Outlet />
+      <Footer />
     </>
   );
 };

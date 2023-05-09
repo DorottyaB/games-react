@@ -12,8 +12,9 @@ export const UpcomingPreview = () => {
       <h2>Coming Soon</h2>
       <SeeAllBtn path='upcomingGames' />
       <section className='sm-horizontal'>
-        {upcomingGames &&
-          upcomingGames.slice(0, 7).map(game => <UpcomingCard key={game.id} game={game} />)}
+        {upcomingGames?.slice(0, 7).map(game => (
+          <UpcomingCard key={game.id} game={game} />
+        ))}
       </section>
     </article>
   );

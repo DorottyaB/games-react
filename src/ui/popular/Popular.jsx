@@ -18,10 +18,11 @@ export const Popular = () => {
   return (
     <article className='popular-container'>
       <h2>Popular Games</h2>
-      {sortedGames &&
-        sortedGames.slice(index[0], index[1]).map(game => <GameCard key={game.id} game={game} />)}
-      {sortedGames && sortedGames.length > index[1] ? <LoadMoreBtn handleClick={loadMore} /> : null}
-      {sortedGames && sortedGames.length <= index[1] ? <SeeAllBtn path='sortedGames' /> : null}
+      {sortedGames?.slice(index[0], index[1]).map(game => (
+        <GameCard key={game.id} game={game} />
+      ))}
+      {sortedGames?.length > index[1] ? <LoadMoreBtn handleClick={loadMore} /> : null}
+      {sortedGames?.length <= index[1] ? <SeeAllBtn path='sortedGames' /> : null}
     </article>
   );
 };

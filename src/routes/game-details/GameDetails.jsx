@@ -5,13 +5,14 @@ import { MobileNavContext } from '../../contexts/MobileNavContext';
 import { formatDate } from '../../utils/Utils';
 import { SearchBar } from '../../shared/search-bar/SearchBar';
 import { PlatformList } from '../../shared/platform-list/PlatformList';
-import { Footer } from '../../shared/footer/Footer';
+import { Error } from '../../shared/error/Error';
 import noImage from '../../assets/no-image.png';
 import './game-details.css';
 
 export const GameDetails = () => {
   const { slug } = useParams();
-  const { games, recentGames, sortedGames, upcomingGames, searchedGame } = useContext(RawgContext);
+  const { games, recentGames, sortedGames, upcomingGames, searchedGame, error } =
+    useContext(RawgContext);
   const [game, setGame] = useState();
   const { isMobileNavOpen } = useContext(MobileNavContext);
   const [index, setIndex] = useState([0, 4]);
@@ -36,6 +37,10 @@ export const GameDetails = () => {
       return [0, prevValue[1] + 6];
     });
   };
+
+  if (error) {
+    return <Error />;
+  }
 
   return (
     <>
@@ -102,7 +107,6 @@ export const GameDetails = () => {
           </>
         )}
       </main>
-      <Footer />
     </>
   );
 };

@@ -6,6 +6,7 @@ import { Home } from './routes/home/Home';
 import { SearchResults } from './routes/games-list/SearchResults';
 import { GamesList } from './routes/games-list/GamesList';
 import { GameDetails } from './routes/game-details/GameDetails';
+import { NotFound } from './routes/not-found/NotFound';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path='platforms/:filter' element={<GamesList />} />
             <Route path='games/:slug' element={<GameDetails />} />
           </Route>
+          <Route element={<NotFound />} />
         </Routes>
       </RawgProvider>
     </MobileNavProvider>

@@ -13,14 +13,16 @@ export const RawgProvider = ({ children }) => {
   const [upcomingGames, setUpcomingGames] = useState([]);
   const [sortedGames, setSortedGames] = useState([]);
   const [searchedGame, setSearchedGame] = useState(null);
-  const [filteredByGenre, setFilteredByGenre] = useState([]);
-  const [filteredByPlatform, setFilteredByPlatform] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   // RECENT GAMES
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setError(null);
+        setIsLoading(true);
         const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
           .toISOString()
           .split('T')[0]; // get the date 30 days ago in the format "yyyy-mm-dd"
@@ -33,7 +35,9 @@ export const RawgProvider = ({ children }) => {
         } else {
           setRecentGames(data.results);
         }
+        setIsLoading(false);
       } catch (error) {
+        setError(error);
         console.error(error);
       }
     };
@@ -56,6 +60,7 @@ export const RawgProvider = ({ children }) => {
     },${futureDate}&ordering=-added&page=${currentPage}&page_size=18&parent_platforms=1,2,3,5,6,7`;
     const fetchData = async () => {
       try {
+        setError(null);
         const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
         if (currentPage > 1) {
           setUpcomingGames(prevGames => [...prevGames, ...data.results]);
@@ -63,6 +68,7 @@ export const RawgProvider = ({ children }) => {
           setUpcomingGames(data.results);
         }
       } catch (error) {
+        setError(error);
         console.error(error);
       }
     };
@@ -85,6 +91,7 @@ export const RawgProvider = ({ children }) => {
     }&ordering=-metacritic&page_size=18&page=${currentPage}&parent_platforms=1,2,3,5,6,7`;
     const fetchData = async () => {
       try {
+        setError(null);
         const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
         if (currentPage > 1) {
           setSortedGames(prevGames => [...prevGames, ...data.results]);
@@ -92,6 +99,7 @@ export const RawgProvider = ({ children }) => {
           setSortedGames(data.results);
         }
       } catch (error) {
+        setError(error);
         console.error(error);
       }
     };
@@ -100,16 +108,22 @@ export const RawgProvider = ({ children }) => {
 
   const searchGame = async searchParam => {
     try {
+      setError(null);
+      setIsLoading(true);
       const params = `&search=${searchParam}&ordering=-metacritic&page_size=9&search_exact=true&search_precise=true`;
       const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
       setSearchedGame(data.results || null);
+      setIsLoading(false);
     } catch (error) {
+      setError(error);
       console.error(error);
     }
   };
 
   const filterByGenre = async genre => {
     try {
+      setError(null);
+      setIsLoading(true);
       const params = `&genres=${genre}&ordering=-added&page_size=18&page=${currentPage}`;
       const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
       if (currentPage > 1) {
@@ -117,13 +131,17 @@ export const RawgProvider = ({ children }) => {
       } else {
         setGames(data.results);
       }
+      setIsLoading(false);
     } catch (error) {
+      setError(error);
       console.error(error);
     }
   };
 
   const filterByPlatform = async platform => {
     try {
+      setError(null);
+      setIsLoading(true);
       const params = `&parent_platforms=${platform}&ordering=-added&page_size=18&page=${currentPage}`;
       const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
       if (currentPage > 1) {
@@ -131,7 +149,9 @@ export const RawgProvider = ({ children }) => {
       } else {
         setGames(data.results);
       }
+      setIsLoading(false);
     } catch (error) {
+      setError(error);
       console.error(error);
     }
   };
@@ -143,6 +163,8 @@ export const RawgProvider = ({ children }) => {
     sortedGames,
     searchedGame,
     currentPage,
+    isLoading,
+    error,
     filterByGenre,
     filterByPlatform,
     searchGame,

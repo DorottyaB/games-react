@@ -10,6 +10,12 @@
   --card-border-radius: 13px;
 }
 
+#root {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 80vh max-content;
+}
+
 *,
 *::before,
 *::after {
@@ -80,9 +86,8 @@ img {
 
 @media screen and (min-width: 1024px) {
   #root {
-    display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: max-content 1fr max-content;
+    grid-template-rows: 1fr max-content;
   }
 
   main,
