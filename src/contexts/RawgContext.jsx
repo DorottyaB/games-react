@@ -2,9 +2,9 @@
 import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 
-export const RawgContext = createContext();
+const API_KEY = import.meta.env.VITE_RAWG_KEY;
 
-const API_KEY = 'a3ed942ec1654e64a8ac9b99dc049dcc';
+export const RawgContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const RawgProvider = ({ children }) => {
