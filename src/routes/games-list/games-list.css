@@ -33,21 +33,9 @@ main.main--game-list h2 {
   margin-top: 10px;
 }
 
-.btn-navigate-prev {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  justify-self: start;
-}
-
-.btn-navigate-prev:disabled {
+.btn-navigate:disabled {
   opacity: 0.5;
   cursor: auto;
-}
-
-.btn-navigate-next {
-  grid-column-start: -2;
-  grid-column-end: -1;
-  justify-self: end;
 }
 
 .btn-navigate:not(.btn-navigate:disabled):hover,

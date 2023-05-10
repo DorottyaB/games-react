@@ -53,6 +53,14 @@ export const GamesList = () => {
     }
   }, [filter, pathname]);
 
+  useEffect(() => {
+    if (pathname.startsWith('/genres/')) {
+      filterByGenre(filter);
+    } else if (pathname.startsWith('/platforms/')) {
+      filterByPlatform(filter);
+    }
+  }, [currentPage]);
+
   function capitalizeHyphenatedString(str) {
     const words = str.split('-');
     const capitalizedWords = words.map(word => {
