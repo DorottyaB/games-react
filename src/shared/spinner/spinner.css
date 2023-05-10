@@ -1,0 +1,23 @@
+.spinner-container {
+  grid-area: '2 / 1 / 3 / 2';
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.spinner {
+  margin: 'auto';
+  background: 'none';
+  display: 'block';
+  shape-rendering: 'auto';
+}
+
+@media screen and (min-width: 1024px) {
+  .spinner-container {
+    grid-area: '2 / 2 / 3 / 3';
+    align-items: center;
+    padding-top: 0;
+  }
+}

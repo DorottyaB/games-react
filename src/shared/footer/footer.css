@@ -1,4 +1,5 @@
 footer {
+  grid-area: -2 / 1 / -1 / -1;
   background-color: var(--nav-color);
   padding: 60px 0 30px;
   display: flex;

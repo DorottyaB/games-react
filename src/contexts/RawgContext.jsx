@@ -12,7 +12,7 @@ export const RawgProvider = ({ children }) => {
   const [recentGames, setRecentGames] = useState([]);
   const [upcomingGames, setUpcomingGames] = useState([]);
   const [sortedGames, setSortedGames] = useState([]);
-  const [searchedGame, setSearchedGame] = useState(null);
+  const [searchedGame, setSearchedGame] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -61,12 +61,14 @@ export const RawgProvider = ({ children }) => {
     const fetchData = async () => {
       try {
         setError(null);
+        setIsLoading(true);
         const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
         if (currentPage > 1) {
           setUpcomingGames(prevGames => [...prevGames, ...data.results]);
         } else {
           setUpcomingGames(data.results);
         }
+        setIsLoading(false);
       } catch (error) {
         setError(error);
         console.error(error);
@@ -92,12 +94,14 @@ export const RawgProvider = ({ children }) => {
     const fetchData = async () => {
       try {
         setError(null);
+        setIsLoading(true);
         const { data } = await axios.get(`https://api.rawg.io/api/games?key=${API_KEY}${params}`);
         if (currentPage > 1) {
           setSortedGames(prevGames => [...prevGames, ...data.results]);
         } else {
           setSortedGames(data.results);
         }
+        setIsLoading(false);
       } catch (error) {
         setError(error);
         console.error(error);

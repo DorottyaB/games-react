@@ -13,7 +13,7 @@
 #root {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: max-content 80vh max-content;
+  grid-template-rows: max-content 1fr max-content;
 }
 
 *,

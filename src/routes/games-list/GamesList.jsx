@@ -10,28 +10,45 @@ import './games-list.css';
 
 export const GamesList = () => {
   const { filter } = useParams();
-  const value = useContext(RawgContext);
+  const {
+    recentGames,
+    sortedGames,
+    upcomingGames,
+    games,
+    currentPage,
+    filterByGenre,
+    filterByPlatform,
+    setCurrentPage,
+    isLoading,
+    error,
+  } = useContext(RawgContext);
   const [list, setList] = useState([]);
   const { pathname } = useLocation();
   const { isMobileNavOpen } = useContext(MobileNavContext);
   const [index, setIndex] = useState([0, 18]);
 
   useEffect(() => {
-    if (filter && value) {
-      Object.entries(value).forEach(([key, array]) => {
-        key === filter ? setList(array) : key === 'games' ? setList(array) : null;
-      });
+    if (filter && recentGames && sortedGames && upcomingGames && games) {
+      if (filter === 'recentGames') {
+        setList(recentGames);
+      } else if (filter === 'sortedGames') {
+        setList(sortedGames);
+      } else if (filter === 'upcomingGames') {
+        setList(upcomingGames);
+      } else {
+        setList(games);
+      }
     }
-  }, [filter, value]);
+  }, [filter, recentGames, sortedGames, upcomingGames, games]);
 
   useEffect(() => {
-    if (filter && value) {
+    if (filter) {
       if (pathname.startsWith('/genres/')) {
-        value.filterByGenre(filter);
+        filterByGenre(filter);
       } else if (pathname.startsWith('/platforms/')) {
-        value.filterByPlatform(filter);
+        filterByPlatform(filter);
       }
-      value.setCurrentPage(1);
+      setCurrentPage(1);
       setIndex([0, 18]);
     }
   }, [filter, pathname]);
@@ -70,7 +87,7 @@ export const GamesList = () => {
       : capitalizeHyphenatedString(filter);
 
   const loadPrev = () => {
-    value.setCurrentPage(prevPage => prevPage - 1);
+    setCurrentPage(prevPage => prevPage - 1);
     setIndex(prevValue => {
       return [prevValue[0] - 18, prevValue[1] - 18];
     });
@@ -78,20 +95,20 @@ export const GamesList = () => {
   };
 
   const loadNext = () => {
-    value.setCurrentPage(prevPage => prevPage + 1);
+    setCurrentPage(prevPage => prevPage + 1);
     setIndex(prevValue => {
       return [prevValue[0] + 18, prevValue[1] + 18];
     });
     window.scrollTo(0, 0);
   };
 
-  if (value.error) {
+  if (error) {
     return <Error />;
   }
 
   return (
     <>
-      {value.isLoading ? (
+      {isLoading ? (
         <Spinner />
       ) : (
         <main className='main--game-list'>
@@ -106,40 +123,42 @@ export const GamesList = () => {
                 {list?.slice(index[0], index[1]).map(item => (
                   <GameCard key={item.id} game={item} />
                 ))}
-                <button
-                  className='btn-navigate btn-navigate-prev'
-                  onClick={loadPrev}
-                  disabled={value.currentPage === 1}
-                >
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='20'
-                    height='20'
-                    style={{ rotate: '90deg' }}
-                    fill='rgba(245, 245, 245, 0.6)'
-                    viewBox='0 0 256 256'
+                <div className='btn-navigate-container'>
+                  <button
+                    className='btn-navigate btn-navigate-prev'
+                    onClick={loadPrev}
+                    disabled={currentPage === 1}
                   >
-                    <path d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'></path>
-                  </svg>{' '}
-                  Previous
-                </button>
-                <button
-                  className='btn-navigate btn-navigate-next'
-                  onClick={loadNext}
-                  disabled={index[1] > list.length}
-                >
-                  Next{' '}
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    width='20'
-                    height='20'
-                    style={{ rotate: '270deg' }}
-                    fill='rgba(245, 245, 245, 0.6)'
-                    viewBox='0 0 256 256'
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='20'
+                      height='20'
+                      style={{ rotate: '90deg' }}
+                      fill='rgba(245, 245, 245, 0.6)'
+                      viewBox='0 0 256 256'
+                    >
+                      <path d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'></path>
+                    </svg>{' '}
+                    Previous
+                  </button>
+                  <button
+                    className='btn-navigate btn-navigate-next'
+                    onClick={loadNext}
+                    disabled={index[1] > list.length}
                   >
-                    <path d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'></path>
-                  </svg>
-                </button>
+                    Next{' '}
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='20'
+                      height='20'
+                      style={{ rotate: '270deg' }}
+                      fill='rgba(245, 245, 245, 0.6)'
+                      viewBox='0 0 256 256'
+                    >
+                      <path d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'></path>
+                    </svg>
+                  </button>
+                </div>
               </article>
             </>
           )}

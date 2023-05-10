@@ -16,6 +16,12 @@ main.main--game-list h2 {
   row-gap: 10px;
 }
 
+.btn-navigate-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .btn-navigate {
   background-color: transparent;
   font-size: 18px;
@@ -58,9 +64,14 @@ main.main--game-list h2 {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 20px;
   }
+
+  .btn-navigate-container {
+    grid-column-start: 1;
+    grid-column-end: -1;
+  }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1150px) {
   main.main--game-list {
     grid-template-columns: repeat(2, 1fr);
   }
