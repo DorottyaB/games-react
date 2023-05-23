@@ -34,10 +34,10 @@ export const Footer = () => {
         </li>
       </ul>
       <p>
-        Data and images are from <a href='https://rawg.io'>RAWG.io</a>
+        Data from <a href='https://rawg.io'>RAWG.io</a>
       </p>
       <p>
-        Created by <a href='https://github.com/DorottyaB'>Dorottya</a>
+        Designed and coded by <a href='https://github.com/DorottyaB'>Dorottya</a>
       </p>
       <p className='copyright'>{date} © All Rights Reserved.</p>
     </footer>

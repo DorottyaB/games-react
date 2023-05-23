@@ -1,7 +1,7 @@
 {
   "name": "video-games-site",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Dorottya Balogh",
   "type": "module",
   "scripts": {
