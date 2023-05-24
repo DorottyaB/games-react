@@ -10,6 +10,7 @@ export const GameCard = ({ game }) => {
   return (
     <section className='game-card-container'>
       <img
+        loading='lazy'
         src={game.background_image !== null ? game.background_image : noImage}
         width='355'
         height='200'

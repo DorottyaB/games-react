@@ -8,7 +8,7 @@ import { Spinner } from '../../shared/spinner/Spinner';
 import { Error } from '../../shared/error/Error';
 import './games-list.css';
 
-export const SearchResults = () => {
+const SearchResults = () => {
   const { query } = useParams();
   const { searchedGame, isLoading, error } = useContext(RawgContext);
   const { isMobileNavOpen } = useContext(MobileNavContext);
@@ -38,3 +38,5 @@ export const SearchResults = () => {
     </>
   );
 };
+
+export default SearchResults;

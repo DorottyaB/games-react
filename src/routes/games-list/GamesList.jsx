@@ -8,7 +8,7 @@ import { Spinner } from '../../shared/spinner/Spinner';
 import { Error } from '../../shared/error/Error';
 import './games-list.css';
 
-export const GamesList = () => {
+const GamesList = () => {
   const { filter } = useParams();
   const {
     recentGames,
@@ -175,3 +175,5 @@ export const GamesList = () => {
     </>
   );
 };
+
+export default GamesList;

@@ -57,7 +57,7 @@ export const RawgProvider = ({ children }) => {
     const futureDate = getDate365DaysFromNow();
     const params = `&dates=${
       new Date().toISOString().split('T')[0]
-    },${futureDate}&ordering=-added&page=${currentPage}&page_size=18&parent_platforms=1,2,3,5,6,7`;
+    },${futureDate}&ordering=released&page=${currentPage}&page_size=18&parent_platforms=1,2,3,5,6,7`;
     const fetchData = async () => {
       try {
         setError(null);

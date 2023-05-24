@@ -9,7 +9,7 @@ import { Error } from '../../shared/error/Error';
 import noImage from '../../assets/no-image.png';
 import './game-details.css';
 
-export const GameDetails = () => {
+const GameDetails = () => {
   const { slug } = useParams();
   const { games, recentGames, sortedGames, upcomingGames, searchedGame, error } =
     useContext(RawgContext);
@@ -94,7 +94,13 @@ export const GameDetails = () => {
               {game.short_screenshots !== null
                 ? game.short_screenshots.slice(index[0], index[1]).map(img => (
                     <Link key={img.id} to={img.image} target='_blank'>
-                      <img className='screenshot' width='316' height='192' src={img.image}></img>
+                      <img
+                        loading='lazy'
+                        className='screenshot'
+                        width='316'
+                        height='192'
+                        src={img.image}
+                      ></img>
                     </Link>
                   ))
                 : null}
@@ -110,3 +116,5 @@ export const GameDetails = () => {
     </>
   );
 };
+
+export default GameDetails;
