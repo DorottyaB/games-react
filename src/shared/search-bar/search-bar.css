@@ -1,6 +1,7 @@
 .search-bar-container {
   position: relative;
   margin-bottom: 16px;
+  align-self: start;
 }
 
 input[type='search'] {
@@ -59,6 +60,10 @@ input[type='search']:focus-visible {
 }
 
 @media screen and (min-width: 768px) {
+  .search-bar-container {
+    margin-bottom: 0;
+  }
+
   input[type='search'] {
     padding: 20px 25px;
     border-radius: var(--card-border-radius);
@@ -81,7 +86,7 @@ input[type='search']:focus-visible {
 
 @media screen and (min-width: 1024px) {
   .search-bar-container {
-    grid-area: 1 / 1 / 2 / -1;
+    grid-area: 1 / 1 / 2 / -2;
     margin-bottom: 30px;
     width: 575px;
     justify-self: end;

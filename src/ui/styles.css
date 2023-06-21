@@ -160,7 +160,7 @@ a:visited.genre-link {
 
   /* COMING SOON PREVIEW & CARD */
   .upcoming-preview-container {
-    grid-area: 2 / 2 / 4 / 3;
+    grid-area: 2 / 2 / 4 / 4;
     border-left: 1px solid rgba(245, 245, 245, 0.18);
     padding-left: 21px;
   }

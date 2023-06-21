@@ -7,6 +7,7 @@ import { GameCard } from '../../ui/GameCard';
 import { Spinner } from '../../shared/spinner/Spinner';
 import { Error } from '../../shared/error/Error';
 import './games-list.css';
+import { LinkWishlist } from '../../shared/link-wishlist/LinkWishlist';
 
 const GamesList = () => {
   const { filter } = useParams();
@@ -122,6 +123,7 @@ const GamesList = () => {
         <main className='main--game-list'>
           <div className='overlay' hidden={!isMobileNavOpen}></div>
           <SearchBar />
+          <LinkWishlist />
           {list.length === 0 ? (
             <p style={{ fontSize: '20px' }}>No games found.</p>
           ) : (

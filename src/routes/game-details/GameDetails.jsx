@@ -6,6 +6,8 @@ import { formatDate } from '../../utils/Utils';
 import { SearchBar } from '../../shared/search-bar/SearchBar';
 import { PlatformList } from '../../shared/platform-list/PlatformList';
 import { Error } from '../../shared/error/Error';
+import { LinkWishlist } from '../../shared/link-wishlist/LinkWishlist';
+import { AddToWishlistBtn } from '../../shared/btn-add-to-wishlist/AddToWishlistBtn';
 import noImage from '../../assets/no-image.png';
 import './game-details.css';
 
@@ -28,6 +30,7 @@ const GameDetails = () => {
       ];
       const foundGame = allGames.find(g => g.slug === slug);
       setGame(foundGame);
+      console.log(foundGame);
     }
     findGame();
   }, []);
@@ -47,6 +50,7 @@ const GameDetails = () => {
       <main className='main--game'>
         <div className='overlay' hidden={!isMobileNavOpen}></div>
         <SearchBar />
+        <LinkWishlist />
         {game && (
           <>
             <article
@@ -90,6 +94,7 @@ const GameDetails = () => {
                 <span key={item.platform.id}>{item.platform.name}</span>
               ))}
             </p>
+            <AddToWishlistBtn game={game} />
             <div className='screenshots'>
               {game.short_screenshots !== null
                 ? game.short_screenshots.slice(index[0], index[1]).map(img => (

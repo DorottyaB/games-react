@@ -8,6 +8,7 @@ import { Popular } from '../../ui/popular/Popular';
 import { Spinner } from '../../shared/spinner/Spinner';
 import { Error } from '../../shared/error/Error';
 import './home.css';
+import { LinkWishlist } from '../../shared/link-wishlist/LinkWishlist';
 
 export const Home = () => {
   const { isMobileNavOpen } = useContext(MobileNavContext);
@@ -25,6 +26,7 @@ export const Home = () => {
         <main className='main--home'>
           <div className='overlay' hidden={!isMobileNavOpen}></div>
           <SearchBar />
+          <LinkWishlist />
           <NewPreview />
           <UpcomingPreview />
           <Popular />

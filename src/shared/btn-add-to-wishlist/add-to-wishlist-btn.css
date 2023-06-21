@@ -1,0 +1,28 @@
+.add-to-wishlist-btn-container {
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 40px;
+}
+
+.add-to-wishlist-btn-container button {
+  background: none;
+}
+
+.add-to-wishlist-btn-container button:disabled {
+  cursor: default;
+}
+
+.add-to-wishlist-btn-container button svg {
+  transition: transform 0.7s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.add-to-wishlist-btn-container p {
+  font-size: 18px;
+}
+
+.add-to-wishlist-btn-container button:not(:disabled):hover svg {
+  transform: rotateY(180deg);
+}

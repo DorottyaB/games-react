@@ -7,6 +7,7 @@ import { GameCard } from '../../ui/GameCard';
 import { Spinner } from '../../shared/spinner/Spinner';
 import { Error } from '../../shared/error/Error';
 import './games-list.css';
+import { LinkWishlist } from '../../shared/link-wishlist/LinkWishlist';
 
 const SearchResults = () => {
   const { query } = useParams();
@@ -25,6 +26,7 @@ const SearchResults = () => {
         <main className='main--game-list'>
           <div className='overlay' hidden={!isMobileNavOpen}></div>
           <SearchBar />
+          <LinkWishlist />
           <h2>Search results for &apos;{query}&apos;</h2>
           <article className='game-list-container'>
             {searchedGame?.length === 0 ? (

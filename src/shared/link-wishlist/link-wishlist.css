@@ -1,0 +1,39 @@
+.wishlist-link-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  justify-self: start;
+}
+
+.wishlist-link-container svg {
+  width: 26px;
+  height: 26px;
+}
+
+.wishlist-link-container:active {
+  color: var(--primary-color);
+}
+
+@media screen and (min-width: 768px) {
+  .wishlist-link-container {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .wishlist-link-container {
+    margin-bottom: 30px;
+    justify-self: end;
+    align-self: center;
+  }
+
+  .wishlist-link-container svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .wishlist-link-container span {
+    display: none;
+  }
+}

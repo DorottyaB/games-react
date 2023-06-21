@@ -48,6 +48,10 @@ main.main--game-list h2 {
 }
 
 @media screen and (min-width: 768px) {
+  main.main--game-list {
+    row-gap: 40px;
+  }
+
   .game-list-container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 20px;
@@ -61,7 +65,8 @@ main.main--game-list h2 {
 
 @media screen and (min-width: 1150px) {
   main.main--game-list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 65px;
+    row-gap: 20px;
   }
 
   main.main--game-list h2 {

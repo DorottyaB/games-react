@@ -13,7 +13,7 @@ main.main--home {
 
 @media screen and (min-width: 1024px) {
   main.main--home {
-    grid-template-columns: 72% 28%;
+    grid-template-columns: 72% calc(28% - 65px) 65px;
     row-gap: 20px;
   }
 }
