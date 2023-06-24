@@ -6,6 +6,8 @@ Users are able to:
 - Search for video games by name
 - Filter video games by genre and platform
 - See details of a video game
+- Add/remove games to/from wishlist
+- See list of saved games
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
 
@@ -19,6 +21,7 @@ Users are able to:
 - CSS Grid
 - Mobile-first workflow
 - [Rawg API](https://rawg.io/apidocs)
+- localStorage
 
 ### Link
 
