@@ -30,7 +30,6 @@ const GameDetails = () => {
       ];
       const foundGame = allGames.find(g => g.slug === slug);
       setGame(foundGame);
-      console.log(foundGame);
     }
     findGame();
   }, []);

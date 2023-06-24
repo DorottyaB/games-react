@@ -4,12 +4,7 @@ export const WishlistContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const WishlistProvider = ({ children }) => {
-  const [games, setGames] = useState([]);
-
-  useEffect(() => {
-    const localData = localStorage.getItem('games');
-    localData ? setGames(JSON.parse(localData)) : [];
-  }, []);
+  const [games, setGames] = useState(JSON.parse(localStorage.getItem('games')) || []);
 
   useEffect(() => {
     localStorage.setItem('games', JSON.stringify(games));
@@ -18,6 +13,7 @@ export const WishlistProvider = ({ children }) => {
 
   const addToWishlist = game => {
     const data = {
+      id: game.id,
       slug: game.slug,
       name: game.name,
       released: game.released,
@@ -33,8 +29,13 @@ export const WishlistProvider = ({ children }) => {
     return value;
   };
 
+  const removeGame = slug => {
+    const filteredGames = games.filter(game => game.slug !== slug);
+    setGames(filteredGames);
+  };
+
   return (
-    <WishlistContext.Provider value={{ addToWishlist, checkIfAdded }}>
+    <WishlistContext.Provider value={{ games, addToWishlist, checkIfAdded, removeGame }}>
       {children}
     </WishlistContext.Provider>
   );

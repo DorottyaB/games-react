@@ -3,7 +3,12 @@ import './link-wishlist.css';
 
 export const LinkWishlist = () => {
   return (
-    <Link to='/wishlist' className='wishlist-link-container' title='Wishlist' aria-label='wishlist'>
+    <Link
+      to='/wishlist'
+      className='wishlist-link-container'
+      title='Go to Wishlist'
+      aria-label='Go to Wishlist'
+    >
       <svg
         xmlns='http://www.w3.org/2000/svg'
         width='34'

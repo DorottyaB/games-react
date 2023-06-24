@@ -34,7 +34,7 @@ article {
   row-gap: 10px;
 }
 
-h3 {
+.info-container h3 {
   font-size: 18px;
   grid-area: 1 / 1 / 3 / 2;
   align-self: center;
@@ -192,19 +192,10 @@ a:visited.genre-link {
     grid-area: 3 / 1 / 4 / 2;
     padding-right: 21px;
   }
-
-  /* .popular-card-container {
-    transition: all 0.4s;
-  }
-
-  .popular-card-container:hover {
-    transform: scale(1.02);
-    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.05), -1px -1px 8px rgba(0, 0, 0, 0.025);
-  } */
 }
 
 @media screen and (min-width: 1400px) {
-  h3 {
+  .info-container h3 {
     font-size: 20px;
   }
 

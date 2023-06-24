@@ -16,6 +16,7 @@ export const RawgProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  // const [wishlistedGames, setWishlistedGames] = useState([]);
 
   // RECENT GAMES
   useEffect(() => {
@@ -160,6 +161,21 @@ export const RawgProvider = ({ children }) => {
     }
   };
 
+  // const fetchWishlistedGames = async param => {
+  //   try {
+  //     setError(null);
+  //     setIsLoading(true);
+  //     const { data } = await axios.get(`https://api.rawg.io/api/games/${param}?key=${API_KEY}`);
+  //     setWishlistedGames(prevGames => [...prevGames, data]);
+  //     console.log(wishlistedGames);
+  //     console.log(data);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     setError(error);
+  //     console.log(error);
+  //   }
+  // };
+
   const value = {
     games,
     recentGames,
@@ -173,6 +189,7 @@ export const RawgProvider = ({ children }) => {
     filterByPlatform,
     searchGame,
     setCurrentPage,
+    // fetchWishlistedGames,
   };
 
   return <RawgContext.Provider value={value}>{children}</RawgContext.Provider>;
